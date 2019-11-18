@@ -11,13 +11,15 @@ they will be stored in the on-board memory
 3. Once online, it listens to port 1883, a MQTT broker is then needed for commands publishment. Use any device you want to as the broker
 
 ## Use the following commands to control the ESP
-  ### to set one pin to input/output   
+  1. to set one pin to input/output   
   SetPinMode:Pin_number INPUT/OUTPUT
-  ### to make one pin to output HIGH or LOW signal   
+  2. to make one pin to output HIGH or LOW signal   
   PinOutput: Pin_number HIGH/LOW
-  ### to PWM a pin, x is the PWM percentage and 0<x<100
+  3. to PWM a pin, x is the PWM percentage and 0<x<100
   PinOutput: Pin_number PWM x
-  ### to subscript a topic
+  4. to subscript a topic
   AddTopic:o topic: topic_name
-  ### to subscript a topic
+  5. to subscript a topic
   RemoveTopic: topic_name
+
+the serial port is at 115200 bps, it always output useful informations when states changes
