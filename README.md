@@ -15,11 +15,11 @@ they will be stored in the on-board memory
   SetPinMode:Pin_number INPUT/OUTPUT
   2. to make one pin to output HIGH or LOW signal   
   PinOutput: Pin_number HIGH/LOW
-  3. to PWM a pin, x is the PWM percentage and 0<x<100
+  3. to PWM a pin, x is the PWM percentage and 0<x<100  
   PinOutput: Pin_number PWM x
-  4. to subscript a topic
+  4. to subscript a topic  
   AddTopic:o topic: topic_name
-  5. to subscript a topic
+  5. to subscript a topic  
   RemoveTopic: topic_name
 
-the serial port is at 115200 bps, it always output useful informations when states changes
+the serial port is at 115200 bps, it always output useful informations when states change
