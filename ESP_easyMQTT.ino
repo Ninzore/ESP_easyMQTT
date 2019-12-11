@@ -165,8 +165,11 @@ void callback(char* topic, byte* payload, unsigned int length)
 
 void ConnectMQTT()
 {
-  String mqtt_buffer = FileSys.getMqttServer();
-  MQTT_Server = mqtt_buffer.c_str();
+  if (sizeof(MQTT_Server) == 0)
+  {
+    String mqtt_buffer = FileSys.getMqttServer();
+    MQTT_Server = mqtt_buffer.c_str();  
+  }
   client.setServer(MQTT_Server, MQTT_Port);
   client.setCallback(callback);
   // Create a client ID
@@ -175,7 +178,7 @@ void ConnectMQTT()
   if (client.connect(clientID.c_str()))
   {
     Serial.println("MQTT connected");
-    publishRequest("default", "Request topic");
+    publishRequest(mac.c_str(), "Request setup");
     client.subscribe("default");
     client.subscribe(mac.c_str());
   }
@@ -238,7 +241,7 @@ void publishData()
 {
   int cursor_start = 0; 
   int cursor_end = 0;
-  String data;
+  String data = mac.concat(":Data:");
   int pin;
   cursor_end = sensor_pin.indexOf(",");
   while (cursor_end != -1)
